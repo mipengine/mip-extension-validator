@@ -5,7 +5,13 @@
 
 /**
  * 校验一个mip extension目录
+ *
  * @param  {string} path 路径
+ * @param  {Object} options 参数
+ * @param  {Reporter=} options.reporter 报告器对象
+ * @param  {Array.<string>} options.rules 校验规则
+ * @param  {Array.<string>} options.additionalRules 自定义校验规则
+ *
  * @return {Promise} 校验结果，结构如下：
  * {
  *     status: 0, // 校验成功, 1 校验失败

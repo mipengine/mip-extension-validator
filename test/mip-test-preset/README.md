@@ -1,4 +1,4 @@
-# mip-test-preset
+
 
 mip-test-preset 组件说明
 
@@ -12,9 +12,9 @@ mip-test-preset 组件说明
 
 ### 基本用法
 ```html
-<mip-test-preset>
+
     自定义内容，可以嵌套其他组件
-</mip-test-preset>
+
 ```
 
 ## 属性

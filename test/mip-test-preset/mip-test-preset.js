@@ -3,7 +3,7 @@
  * @author
  */
 
-define(function (require) {
+define('mip-test-preset', function (require) {
 
     var customElement = require('customElement').create();
 
@@ -16,3 +16,5 @@ define(function (require) {
 
     return customElement;
 });
+
+define();

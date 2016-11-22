@@ -1,7 +1,6 @@
 {
-    "name": "mip-test-preset",
-    "version": "1.0.0",
-    "description": "组件介绍",
+    "name": "mip-test-preset1",
+    "description": "",
     "contributors": [
         {
             "name": "",
@@ -9,6 +8,6 @@
         }
     ],
     "engines": {
-        "mip": ">=1.1.0"
+        "mip": ">=1.d1.0"
     }
 }
