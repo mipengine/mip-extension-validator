@@ -42,5 +42,76 @@ describe('validator.js ', function () {
             });
     });
 
+    it('valid zip', function (done) {
+        var zipPath = path.resolve(process.cwd(), 'test/mip-test-element.zip');
+        validator.validateZip(zipPath, {
+            exportFiles: true
+        })
+            .then(function (data) {
+                assert.ok(data.status === 0, 'valid package');
+                assert.ok(data.warns.length === 0, 'valid package');
+                assert.ok(data.errors.length === 0, 'valid package');
+                assert.ok(data.files.length > 0, 'valid package files');
+                // console.log('export files:\n\t', data.files.map(file => file.path).join('\n\t'))
+                done();
+            }, function (e) {
+                assert.ok(false, e.message);
+                done();
+            });
+    });
 
+    it('invalid zip deepdepth', function (done) {
+        var zipPath = path.resolve(process.cwd(), 'test/mip-test-deepdepth.zip');
+        validator.validateZip(zipPath)
+            .then(function (data) {
+                assert.ok(data.status === 1, 'invalid package');
+                assert.ok(data.errors.length > 0, 'invalid package has errors');
+                done();
+            }, function (e) {
+                assert.ok(false, e.message);
+                done();
+            });
+    });
+
+    it('invalid zip file', function (done) {
+        var zipPath = path.resolve(process.cwd(), 'test/mip-test-invalidzip.zip');
+        validator.validateZip(zipPath)
+            .then(function (data) {
+                assert.ok(data.status === 1, 'invalid package');
+                assert.ok(data.errors.length > 0, 'invalid package has errors');
+                // console.log(data.errors)
+                done();
+            }, function (e) {
+                assert.ok(false, e.message);
+                done();
+            });
+    });
+
+    it('empty zip file', function (done) {
+        var zipPath = path.resolve(process.cwd(), 'test/mip-test-empty.zip');
+        validator.validateZip(zipPath)
+            .then(function (data) {
+                assert.ok(data.status === 1, 'invalid package');
+                assert.ok(data.errors.length > 0, 'invalid package has errors');
+                // console.log(data.errors)
+                done();
+            }, function (e) {
+                assert.ok(false, e.message);
+                done();
+            });
+    });
+
+    it('error directiry zip file', function (done) {
+        var zipPath = path.resolve(process.cwd(), 'test/error-directory.zip');
+        validator.validateZip(zipPath)
+            .then(function (data) {
+                assert.ok(data.status === 1, 'invalid package');
+                assert.ok(data.errors.length > 0, 'invalid package has errors');
+                // console.log(data.errors)
+                done();
+            }, function (e) {
+                assert.ok(false, e.message);
+                done();
+            });
+    });
 });
