@@ -20,6 +20,7 @@ describe('validator.js ', function () {
             });
     });
 
+
     it('invalid', function (done) {
         var dirPath = path.resolve(process.cwd(), 'test/mip-test-preset');
         validator.validate(dirPath)
@@ -58,6 +59,20 @@ describe('validator.js ', function () {
                 assert.ok(false, e.message);
                 done();
             });
+    });
+
+    it('valid hidden files zip', function (done) {
+        var dirPath = path.resolve(process.cwd(), 'test/mip-hidden-files.zip');
+        validator.validateZip(dirPath)
+            .then(function (data) {
+                assert.ok(data.status === 0, 'valid package');
+                assert.ok(data.warns.length === 0, 'valid package');
+                assert.ok(data.errors.length === 0, 'valid package');
+                done();
+            }, function (e) {
+                assert.ok(false, e.message);
+                done();
+            })
     });
 
     it('invalid zip deepdepth', function (done) {
