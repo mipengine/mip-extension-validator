@@ -56,7 +56,7 @@ describe('validator.js ', function () {
                 assert.ok(data.warns.length === 0, 'valid package');
                 assert.ok(data.errors.length === 0, 'valid package');
                 assert.ok(data.files.length > 0, 'valid package files');
-                // console.log('export files:\n\t', data.files.map(file => file.path).join('\n\t'))
+
                 done();
             }).catch((e) => {
                 assert.ok(false, e.message);
