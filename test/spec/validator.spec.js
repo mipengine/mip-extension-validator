@@ -15,8 +15,9 @@ describe('validator.js ', function () {
                 assert.ok(data.errors.length === 0, 'valid package');
                 done();
             }, function (e) {
-                assert.ok(false, e.message);
+            }).catch((e) => {
                 done();
+                assert.ok(false, e.message);
             });
     });
 
@@ -28,16 +29,18 @@ describe('validator.js ', function () {
                 assert.ok(data.status === 1, 'invalid package');
                 assert.ok(data.warns.length > 0, 'invalid package has warnings');
                 assert.ok(data.errors.length > 0, 'invalid package has errors');
-
                 assert.ok(data.errors.find(item => item.file === 'mip-test-preset/package.json'),
                     'invalid package.json');
                 assert.ok(data.errors.find(item => item.file === 'mip-test-preset/README.md'),
                     'invalid README.md');
                 assert.ok(data.errors.find(item => item.file === 'mip-test-preset/mip-test-preset.js'),
                     'invalid mip-test-preset.js');
+                assert.ok(data.errors.find(item => item.file === 'mip-test-preset/mip-test-preset.less'),
+                    'invalid mip-test-preset.less');
 
                 done();
-            }, function (e) {
+            }).catch((e) => {
+                console.log(e)
                 assert.ok(false, e.message);
                 done();
             });
@@ -55,7 +58,7 @@ describe('validator.js ', function () {
                 assert.ok(data.files.length > 0, 'valid package files');
                 // console.log('export files:\n\t', data.files.map(file => file.path).join('\n\t'))
                 done();
-            }, function (e) {
+            }).catch((e) => {
                 assert.ok(false, e.message);
                 done();
             });
@@ -69,7 +72,7 @@ describe('validator.js ', function () {
                 assert.ok(data.warns.length === 0, 'valid package');
                 assert.ok(data.errors.length === 0, 'valid package');
                 done();
-            }, function (e) {
+            }).catch((e) => {
                 assert.ok(false, e.message);
                 done();
             })
@@ -82,7 +85,7 @@ describe('validator.js ', function () {
                 assert.ok(data.status === 1, 'invalid package');
                 assert.ok(data.errors.length > 0, 'invalid package has errors');
                 done();
-            }, function (e) {
+            }).catch((e) => {
                 assert.ok(false, e.message);
                 done();
             });
@@ -96,7 +99,7 @@ describe('validator.js ', function () {
                 assert.ok(data.errors.length > 0, 'invalid package has errors');
                 // console.log(data.errors)
                 done();
-            }, function (e) {
+            }).catch((e) => {
                 assert.ok(false, e.message);
                 done();
             });
@@ -110,7 +113,7 @@ describe('validator.js ', function () {
                 assert.ok(data.errors.length > 0, 'invalid package has errors');
                 // console.log(data.errors)
                 done();
-            }, function (e) {
+            }).catch((e) => {
                 assert.ok(false, e.message);
                 done();
             });
@@ -124,7 +127,7 @@ describe('validator.js ', function () {
                 assert.ok(data.errors.length > 0, 'invalid package has errors');
                 // console.log(data.errors)
                 done();
-            }, function (e) {
+            }).catch((e) => {
                 assert.ok(false, e.message);
                 done();
             });
