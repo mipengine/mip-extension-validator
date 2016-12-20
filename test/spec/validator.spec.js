@@ -46,6 +46,23 @@ describe('validator.js ', function () {
             });
     });
 
+    it('invalid console', function (done) {
+        var dirPath = path.resolve(process.cwd(), 'test/mip-console');
+        validator.validate(dirPath)
+            .then(function (data) {
+                assert.ok(data.status === 1, 'invalid package');
+                assert.ok(data.errors.length > 0, 'invalid package has errors');
+                assert.ok(data.errors.find(item => item.message.indexOf('模块中不应有调试信息') >= 0),
+                    'invalid console');
+
+                done();
+            }).catch((e) => {
+                console.log(e)
+                assert.ok(false, e.message);
+                done();
+            });
+    });
+
     it('valid zip', function (done) {
         var zipPath = path.resolve(process.cwd(), 'test/mip-test-element.zip');
         validator.validateZip(zipPath, {

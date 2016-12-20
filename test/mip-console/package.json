@@ -1,0 +1,14 @@
+{
+    "name": "mip-console",
+    "version": "1.0.0",
+    "description": "组件介绍",
+    "contributors": [
+        {
+            "name": "aa",
+            "email": "bb@bd.com"
+        }
+    ],
+    "engines": {
+        "mip": ">=1.1.0"
+    }
+}
