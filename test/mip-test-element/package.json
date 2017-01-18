@@ -2,12 +2,10 @@
     "name": "mip-test-element",
     "version": "1.0.0",
     "description": "组件介绍",
-    "contributors": [
-        {
-            "name": "xx",
-            "email": "xx"
-        }
-    ],
+    "author": {
+        "name": "xx",
+        "email": "xx"
+    },
     "engines": {
         "mip": ">=1.1.0"
     }
