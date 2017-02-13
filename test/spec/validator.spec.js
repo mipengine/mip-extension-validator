@@ -149,4 +149,26 @@ describe('validator.js ', function () {
                 done();
             });
     });
+
+    it('valid zip with ignore files', function (done) {
+        var zipPath = path.resolve(process.cwd(), 'test/mip-test-ignore.zip');
+        validator.validateZip(zipPath, {
+            exportFiles: true,
+            ignore: [
+                'jquery.js'
+            ]
+        })
+            .then(function (data) {
+                assert.ok(data.status === 0, 'valid package');
+                assert.ok(data.warns.length === 0, 'valid package');
+                assert.ok(data.errors.length === 0, 'valid package');
+                assert.ok(data.files.length > 0, 'valid package files');
+
+                done();
+            }).catch((e) => {
+                assert.ok(false, e.message);
+                done();
+            });
+    });
+
 });

@@ -12,6 +12,7 @@
  * @param  {Array.<string>} options.rules 校验规则
  * @param  {Array.<string>} options.additionalRules 自定义校验规则
  * @param  {boolean} options.exportFiles 是否附加校验的文件列表
+ * @param  {Array=} options.ignore 忽略检查的文件pattern列表
  *
  * @return {Promise} 校验结果，结构如下：
  * {
@@ -40,6 +41,7 @@ exports.validate = function (path, options) {
  * @param  {Array.<string>} options.rules 校验规则
  * @param  {Array.<string>} options.additionalRules 自定义校验规则
  * @param  {boolean} options.exportFiles 是否附加校验的文件列表
+ * @param  {Array=} options.ignore 忽略检查的文件pattern列表
  *
  * @return {Promise} 校验结果，结构如下：
  * {
