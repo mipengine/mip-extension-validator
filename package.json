@@ -1,6 +1,6 @@
 {
   "name": "mip-extension-validator",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "mip组件校验工具",
   "main": "index.js",
   "scripts": {
