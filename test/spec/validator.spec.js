@@ -14,10 +14,10 @@ describe('validator.js ', function () {
                 assert.ok(data.warns.length === 0, 'valid package');
                 assert.ok(data.errors.length === 0, 'valid package');
                 done();
-            }, function (e) {
             }).catch((e) => {
-                done();
+                console.log(e)
                 assert.ok(false, e.message);
+                done();
             });
     });
 
