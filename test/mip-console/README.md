@@ -6,7 +6,7 @@ mip-console 组件说明
 ----|----
 类型|通用
 支持布局|responsive,fixed-height,fill,container,fixed
-所需脚本|http://mipcache.bdstatic.com/static/mip-console/{版本号}/mip-console.js
+所需脚本|http://c.mipcdn.com/static/mip-console/{版本号}/mip-console.js
 
 ## 示例
 
